@@ -19,6 +19,8 @@ subprojects {
                 systemProperty('java.library.path', (libraryPath + ["$libBaseDir/macos"]).join(pathSep))
                 break;
         }
+
+        args "$performanceDataSize"
     }
 
     dependencies {
