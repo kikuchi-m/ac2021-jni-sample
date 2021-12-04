@@ -10,7 +10,7 @@ extern "C" {
 /*
  * Class:     jp_co_atware_ac2021_jni_lib_NativeApi
  * Method:    calcByArray
- * Signature: ([[I)J
+ * Signature: ([[J)J
  */
 JNIEXPORT jlong JNICALL Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByArray
   (JNIEnv *, jobject, jobjectArray);

@@ -23,10 +23,10 @@ public class Application {
         var start = LocalTime.now();
 
         var dataStream = Data.generateDataStream(size);
-        var data = new int[size][];
+        var data = new long[size][];
         var dataList = dataStream.collect(toList());
         for (var i = 0; i < size; i++) {
-            data[i] = dataList.get(i).toIntArray();
+            data[i] = dataList.get(i).toPrimitiveArray();
         }
         var res = nativeApi.calcByArray(data);
 

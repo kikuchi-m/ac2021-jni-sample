@@ -8,14 +8,14 @@ import static java.util.stream.Collectors.toList;
 
 public class Data {
 
-    private final List<Integer> values;
+    private final List<Long> values;
 
-    private Data(List<Integer> values) {
+    private Data(List<Long> values) {
         this.values = values;
     }
 
-    public int[] toIntArray() {
-        var raw = new int[values.size()];
+    public long[] toPrimitiveArray() {
+        var raw = new long[values.size()];
         IntStream.range(0, values.size()).forEach(i -> raw[i] = values.get(i));
         return raw;
     }
@@ -23,7 +23,7 @@ public class Data {
     public static Stream<Data> generateDataStream(int size) {
         return IntStream.range(0, size)
             .map(i -> i % 10 + 1)
-            .mapToObj(i -> IntStream.range(0, i).map(v -> i).boxed().collect(toList()))
+            .mapToObj(i -> IntStream.range(0, i).mapToLong(v -> i).boxed().collect(toList()))
             .map(Data::new);
     }
 }

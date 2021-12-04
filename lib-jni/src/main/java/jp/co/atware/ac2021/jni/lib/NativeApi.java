@@ -6,7 +6,7 @@ public class NativeApi {
         System.loadLibrary("jni-performance-sample");
     }
 
-    public native long calcByArray(int[][] data);
+    public native long calcByArray(long[][] data);
 
     public native long calcByStream(StreamIterator iter);
 }

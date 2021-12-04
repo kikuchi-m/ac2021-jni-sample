@@ -19,7 +19,7 @@ public class StreamIterator {
         return iter.hasNext();
     }
 
-    public int[] next() {
-        return iter.next().toIntArray();
+    public long[] next() {
+        return iter.next().toPrimitiveArray();
     }
 }
