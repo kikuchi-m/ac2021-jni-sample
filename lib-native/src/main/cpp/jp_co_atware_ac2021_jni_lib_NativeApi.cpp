@@ -1,4 +1,4 @@
-#include "jp_co_atware_ac2021_jni_NativeApi.h"
+#include "jp_co_atware_ac2021_jni_lib_NativeApi.h"
 
 #include <jni.h>
 

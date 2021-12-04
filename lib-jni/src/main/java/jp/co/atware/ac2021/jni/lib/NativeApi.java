@@ -1,4 +1,4 @@
-package jp.co.atware.ac2021.jni;
+package jp.co.atware.ac2021.jni.lib;
 
 public class NativeApi {
 

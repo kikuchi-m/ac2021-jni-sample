@@ -3,7 +3,7 @@ plugins {
 }
 
 def sourceDir = "$projectDir/src/main/java"
-def nativeApiSource = "$sourceDir/jp/co/atware/ac2021/jni/NativeApi.java"
+def nativeApiSource = "$sourceDir/jp/co/atware/ac2021/jni/lib/NativeApi.java"
 def intermediateDir = "$buildDir/generated/jni"
 def jniOutputDir = "$rootDir/lib-native/src/main/headers"
 
