@@ -2,3 +2,6 @@ rootProject.name = 'jni-performance'
 
 include 'lib-jni'
 include 'lib-native'
+
+include 'app:perform-array'
+include 'app:perform-stream'

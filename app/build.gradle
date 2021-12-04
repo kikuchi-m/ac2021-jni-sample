@@ -1,0 +1,27 @@
+
+def libBaseDir = "${project(':lib-native').buildDir}/lib/main/release"
+def pathSep = System.getProperty('path.separator')
+def libraryPath = System.getProperty('java.library.path').split(pathSep)
+
+subprojects {
+    apply plugin: 'application'
+
+    application {
+        mainClass = 'jp.co.atware.ac2021.jni.app.Application'
+    }
+
+    run {
+        switch (System.getProperty('os.name')) {
+            case 'Linux':
+                systemProperty('java.library.path', (libraryPath + ["$libBaseDir/linux"]).join(pathSep))
+                break;
+            case 'Mac OS X':
+                systemProperty('java.library.path', (libraryPath + ["$libBaseDir/macos"]).join(pathSep))
+                break;
+        }
+    }
+
+    dependencies {
+        implementation project(':lib-jni')
+    }
+}
