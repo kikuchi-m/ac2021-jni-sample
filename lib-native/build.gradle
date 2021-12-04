@@ -1,0 +1,34 @@
+plugins {
+    id 'cpp-library'
+}
+
+def jniIncludeDir = "${System.env['JAVA_HOME']}/include"
+
+library {
+    baseName = 'jni-performance-sample'
+    linkage = [Linkage.SHARED]
+    targetMachines = [
+        machines.linux.x86_64,
+        machines.macOS.x86_64,
+    ]
+
+    binaries.configureEach {
+        def t = compileTask.get()
+
+        t.macros.put('NDEBUG', null)
+        t.macros.put('__STDC_LIMIT_MACROS', null)
+        t.macros.put('__STDC_FORMAT_MACROS', null)
+        t.compilerArgs.addAll('-Wall', '-std=c++14', '-g')
+
+        def os = targetPlatform.targetMachine.operatingSystemFamily
+        t.includes.from(jniIncludeDir)
+        if (os.macOs) {
+            t.includes.from("$jniIncludeDir/darwin")
+        }
+        if (os.linux) {
+            t.includes.from("$jniIncludeDir/linux")
+        }
+
+        linkTask.get().linkerArgs.addAll('-Wall', '-static-libstdc++')
+    }
+}

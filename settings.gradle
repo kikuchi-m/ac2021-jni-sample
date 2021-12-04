@@ -1,3 +1,4 @@
 rootProject.name = 'jni-performance'
 
 include 'lib-jni'
+include 'lib-native'
