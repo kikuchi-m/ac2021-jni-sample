@@ -34,7 +34,7 @@ public class Application {
 
         // result
         var dur = Duration.between(start, end);
-        System.out.printf("%s (satrt: %s / end: %s)\n", dur, start, end);
+        System.out.printf("%s (start: %s / end: %s)\n", dur, start, end);
         System.out.printf("calculated value: %d\n", res);
     }
 }
