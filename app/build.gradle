@@ -2,12 +2,13 @@
 def libBaseDir = "${project(':lib-native').buildDir}/lib/main/release"
 def pathSep = System.getProperty('path.separator')
 def libraryPath = System.getProperty('java.library.path').split(pathSep)
+def mainClassName ='jp.co.atware.ac2021.jni.app.Application'
 
 subprojects {
     apply plugin: 'application'
 
     application {
-        mainClass = 'jp.co.atware.ac2021.jni.app.Application'
+        mainClass = mainClassName
     }
 
     run {
@@ -21,6 +22,15 @@ subprojects {
         }
 
         args "$performDataSize", "$performDataChunkSize"
+    }
+
+    jar {
+        manifest {
+            attributes(
+                'Main-Class': mainClassName,
+                'Class-Path': "${project(':lib-jni').name}.jar",
+            )
+        }
     }
 
     dependencies {
