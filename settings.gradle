@@ -5,3 +5,4 @@ include 'lib-native'
 
 include 'app:perform-array'
 include 'app:perform-stream'
+include 'app:perform-stream-chunk'

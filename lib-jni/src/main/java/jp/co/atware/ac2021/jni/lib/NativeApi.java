@@ -9,4 +9,6 @@ public class NativeApi {
     public native long calcByArray(long[][] data);
 
     public native long calcByStream(StreamIterator iter);
+
+    public native long calcByStreamChunk(StreamIterator iter);
 }

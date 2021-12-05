@@ -23,6 +23,14 @@ JNIEXPORT jlong JNICALL Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByArray
 JNIEXPORT jlong JNICALL Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByStream
   (JNIEnv *, jobject, jobject);
 
+/*
+ * Class:     jp_co_atware_ac2021_jni_lib_NativeApi
+ * Method:    calcByStreamChunk
+ * Signature: (Ljp/co/atware/ac2021/jni/lib/StreamIterator;)J
+ */
+JNIEXPORT jlong JNICALL Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByStreamChunk
+  (JNIEnv *, jobject, jobject);
+
 #ifdef __cplusplus
 }
 #endif
