@@ -33,8 +33,8 @@ public class Application {
         var end = LocalTime.now();
 
         // result
-        var dur = Duration.between(start, end);
-        System.out.printf("%s (start: %s / end: %s)\n", dur, start, end);
+        var dur = Duration.between(start, end).toMillis() / 1000.0;
+        System.out.printf("%sS (start: %s / end: %s)\n", dur, start, end);
         System.out.printf("calculated value: %d\n", res);
     }
 }
