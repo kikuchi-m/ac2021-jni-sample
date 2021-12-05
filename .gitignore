@@ -1,5 +1,7 @@
 .gradle/
 build/
 
+/artifacts/
+
 # misc
 *.swp
