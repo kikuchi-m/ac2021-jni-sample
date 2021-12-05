@@ -20,7 +20,7 @@ subprojects {
                 break;
         }
 
-        args "$performanceDataSize", "$performanceDataChunkSize"
+        args "$performDataSize", "$performDataChunkSize"
     }
 
     dependencies {
