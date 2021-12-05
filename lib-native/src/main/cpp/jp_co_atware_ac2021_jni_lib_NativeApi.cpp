@@ -8,7 +8,7 @@ jlong Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByArray(JNIEnv* env, jobjec
     auto dataSize = env->GetArrayLength(data);
 
     for (jsize i = 0; i < dataSize; ++i) {
-        auto d = (jlongArray) env->GetObjectArrayElement(data, i);
+        auto d = static_cast<jlongArray>(env->GetObjectArrayElement(data, i));
         auto ds = env->GetArrayLength(d);
         auto dPtr = env->GetLongArrayElements(d, JNI_FALSE);
         for (jsize di = 0; di < ds; ++di) {
@@ -26,7 +26,7 @@ jlong Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByStream(JNIEnv* env, jobje
     jlong result = 0;
 
     while (env->CallBooleanMethod(iter, hasNext)) {
-        auto d = (jlongArray) env->CallObjectMethod(iter, next);
+        auto d = static_cast<jlongArray>(env->CallObjectMethod(iter, next));
         auto ds = env->GetArrayLength(d);
         auto dPtr = env->GetLongArrayElements(d, JNI_FALSE);
         for (jsize di = 0; di < ds; ++di) {
@@ -44,10 +44,10 @@ jlong Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByStreamChunk(JNIEnv* env, 
     jlong result = 0;
 
     while (env->CallBooleanMethod(iter, hasNext)) {
-        auto dc = (jobjectArray) env->CallObjectMethod(iter, nextChunk);
+        auto dc = static_cast<jobjectArray>(env->CallObjectMethod(iter, nextChunk));
         auto dcs = env->GetArrayLength(dc);
         for (jsize dci = 0; dci < dcs; ++dci) {
-            auto d = (jlongArray) env->GetObjectArrayElement(dc, dci);
+            auto d = static_cast<jlongArray>(env->GetObjectArrayElement(dc, dci));
             auto ds = env->GetArrayLength(d);
             auto dPtr = env->GetLongArrayElements(d, JNI_FALSE);
             for (jsize di = 0; di < ds; ++di) {
