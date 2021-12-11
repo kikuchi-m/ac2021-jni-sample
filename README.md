@@ -11,3 +11,5 @@ $ ./performance.py perform --data-size 2000000 --chunk-size 50000 --heap 1024
 ```
 
 For more detail, `./perfomance.py perform -h`.
+
+The program works on the platforms of Linux and MacOS.
