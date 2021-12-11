@@ -33,6 +33,7 @@ jlong Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByStream(JNIEnv* env, jobje
             result += dPtr[di];
         }
         env->ReleaseLongArrayElements(d, dPtr, JNI_ABORT);
+        env->DeleteLocalRef(d);
     }
     return result;
 }
@@ -54,7 +55,9 @@ jlong Java_jp_co_atware_ac2021_jni_lib_NativeApi_calcByStreamChunk(JNIEnv* env, 
                 result += dPtr[di];
             }
             env->ReleaseLongArrayElements(d, dPtr, JNI_ABORT);
+            env->DeleteLocalRef(d);
         }
+        env->DeleteLocalRef(dc);
     }
     return result;
 }
